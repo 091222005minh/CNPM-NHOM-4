@@ -11,12 +11,14 @@ Mục tiêu là áp dụng quy trình phát triển phần mềm, từ **phân t
 - Nguyễn Thiện Quân
 
 ## 🎯 Use Case chính
-- Quản lý người dùng
-- Quản lý sản phẩm/dịch vụ
-- Xử lý giao dịch
-- Báo cáo & thống kê  
-
-(Sơ đồ use case có thể chèn hình ảnh vào đây)
+- Đăng ký tài khoản
+- Đăng nhập/Đăng xuất
+- Quản lý hồ sơ cá nhân
+- Đặt lịch hẹn
+- Thanh toán trực tuyến
+- Quản lý lịch hẹn
+- Nhận thông báo
+- Đánh giá & phản hồi
 
 ## 📐 Thiết kế hệ thống
 - **Use Case Diagram**: ![Use Case](./docs/usecase.png)
