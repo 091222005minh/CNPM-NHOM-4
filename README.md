@@ -5,10 +5,10 @@ Dự án này được phát triển trong môn **Nhập môn Công nghệ Phầ
 Mục tiêu là áp dụng quy trình phát triển phần mềm, từ **phân tích yêu cầu, thiết kế, lập trình, kiểm thử và triển khai**.  
 
 ## 👥 Thành viên nhóm
-- Nguyễn Hữu Minh -
-- Đoàn Nguyễn Thanh Tài -
-- Lương Thái An -  
-- Nguyễn Thiện Quân -
+- Nguyễn Hữu Minh
+- Đoàn Nguyễn Thanh Tài
+- Lương Thái An  
+- Nguyễn Thiện Quân
 
 ## 🎯 Use Case chính
 - Quản lý người dùng
