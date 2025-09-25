@@ -1,1 +1,40 @@
+I.Các Đối Tượng Tham Gia
 
+1.Khách hàng (User): Là người dùng cuối tương tác trực tiếp với ứng dụng. Họ khởi tạo các hành động như tìm kiếm, chọn dịch vụ và xác nhận đặt lịch.
+
+2.Ứng dụng (UI): Đại diện cho giao diện người dùng trên điện thoại di động hoặc trình duyệt web. Đây là cầu nối giữa Khách hàng và hệ thống backend.
+
+3.Backend (Server): Là trái tim của hệ thống, xử lý tất cả các logic nghiệp vụ. Backend nhận yêu cầu từ Ứng dụng, xử lý dữ liệu, giao tiếp với Cơ sở dữ liệu và trả về kết quả.
+
+4.Cơ sở dữ liệu (Database): Nơi lưu trữ tất cả dữ liệu của ứng dụng, bao gồm thông tin về tiệm cắt tóc, các dịch vụ, lịch làm việc, thông tin khách hàng và các lịch hẹn đã được đặt.
+
+
+II.Luồng Thông Điệp Trao Đổi
+
+1. Tìm kiếm và hiển thị dịch vụ:
+Khách hàng -> Ứng dụng: Người dùng mở ứng dụng và "Mở ứng dụng và tìm dịch vụ".
+
+Ứng dụng -> Backend: Ứng dụng gửi yêu cầu "Yêu cầu danh sách các tiệm/dịch vụ" để lấy dữ liệu.
+
+Backend -> Database: Backend thực hiện truy vấn "Lấy dữ liệu tiệm/dịch vụ".
+
+Database -> Backend: Database trả về danh sách dữ liệu cho Backend.
+
+Backend -> Ứng dụng: Backend gửi danh sách đã lấy về cho ứng dụng.
+
+Ứng dụng -> Khách hàng: Ứng dụng hiển thị danh sách để người dùng có thể xem.
+
+
+III.Xác nhận và đặt lịch:
+
+Khách hàng -> Ứng dụng: Người dùng "Chọn khung giờ và xác nhận".
+
+Ứng dụng -> Backend: Ứng dụng gửi thông tin đặt lịch chi tiết (dịch vụ, thời gian, thông tin cá nhân) đến Backend.
+
+Backend -> Backend: Backend tự kiểm tra lại tính hợp lệ của lịch hẹn.
+
+Nếu lịch đã bị đặt: Backend gửi "Thông báo lỗi" về Ứng dụng và ứng dụng hiển thị lỗi cho Khách hàng.
+
+Nếu lịch còn trống: Backend thực hiện "Lưu thông tin đặt lịch" vào Database, sau đó trả về thông báo xác nhận thành công cho ứng dụng.
+
+Ứng dụng -> Khách hàng: Ứng dụng hiển thị "Thông báo thành công" và chi tiết lịch hẹn đã đặt.
