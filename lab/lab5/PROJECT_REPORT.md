@@ -20,5 +20,5 @@ Giúp khách hàng thanh toán dịch vụ nhanh chóng qua nhiều phương th�
 ### Bước 1: Thiết kế Use Case:
 ![Use Case](../lab%202/UC%20Miniapp.png)
 ### Bước 2: Thiết kế Sequence:
-![Sequence Diagram](./lab/lab%203/SD-Sequnce%20Diagram.png)
+![Sequence Diagram](https://raw.githubusercontent.com/091222005minh/CNPM-NHOM-4/main/lab/lab%203/SD-Sequnce%20Diagram.png)
 ### Bước 3: Prototype Form Login:
