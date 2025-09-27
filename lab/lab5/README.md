@@ -18,7 +18,7 @@ Giúp khách hàng thanh toán dịch vụ nhanh chóng qua nhiều phương th�
 
 ## 3. Thiết kế Use Case, Sequence, Form Login code.
 ### Bước 1: Thiết kế Use Case:
-![Use Case](lab/lab 2/UC Miniapp.png)
+![Use Case](lab/lab2/UCMiniapp.png)
 ### Bước 2: Thiết kế Sequence:
-![Use Case](lab/lab 3/SD-Sequnce Diagram.png)
+![Use Case](lab/lab3/SD-SequnceDiagram.png)
 ### Bước 3: Prototype Form Login:
