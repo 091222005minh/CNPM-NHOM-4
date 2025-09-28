@@ -1,32 +1,87 @@
-Các package chính
+I.Chi tiết các Gói Chính (Package Detail)
+1.Gói User.Client (Giao diện Khách hàng)
+Chức năng người dùng cuối (App/Web Client).
 
-UI Package
+1.1. User.Client.Auth: Màn hình đăng nhập, đăng ký, quên mật khẩu.
 
-Chứa các lớp giao diện: LoginScreen, BookingScreen, PaymentScreen, ProfileScreen.
+1.2. User.Client.Search: Tìm kiếm thợ/salon theo địa điểm, dịch vụ, đánh giá.
 
-Vai trò: hiển thị thông tin và nhận input từ người dùng.
+1.3. User.Client.Booking: Chọn dịch vụ, chọn thợ, xem lịch trống, đặt lịch.
 
-Business Logic Package
+1.4. User.Client.Profile: Quản lý hồ sơ cá nhân, lịch sử cắt, lịch đã đặt.
 
-Chứa các lớp xử lý nghiệp vụ: BookingManager, UserManager, ServiceManager, SalonManager.
+1.5. User.Client.Payment: Thanh toán, quản lý phương thức thanh toán.
+2.Gói User.Salon (Giao diện Salon/Thợ cắt tóc)
+Chức năng dành cho quản lý và thợ cắt tóc (App/Web Admin).
 
-Vai trò: xử lý logic, kiểm tra ràng buộc, điều phối luồng dữ liệu giữa UI và Data.
+2.1. User.Salon.Dashboard: Tổng quan hoạt động, thống kê nhanh.
 
-Data Access Package
+2.2. User.Salon.Schedule: Quản lý lịch làm việc, lịch nghỉ, xem lịch đặt.
 
-Chứa các lớp làm việc với CSDL: UserDAO, BookingDAO, ServiceDAO.
+2.3. User.Salon.Catalog: Cập nhật dịch vụ, giá, hình ảnh, hồ sơ thợ.
 
-Vai trò: CRUD dữ liệu, giao tiếp với database.
+2.4. User.Salon.Staff: Quản lý thông tin nhân viên (chỉ dành cho Quản lý Salon).
 
-Payment Package
+2.5. User.Salon.Analytics: Xem báo cáo doanh thu, hiệu suất.
+3.Gói Core.User (Quản lý người dùng)
+Đảm bảo tính nhất quán của dữ liệu người dùng.
 
-Chứa các lớp phục vụ thanh toán: PaymentProcessor, PaymentGatewayAdapter, Invoice.
+3.1. Core.User.Entity: Định nghĩa các đối tượng (User, Role, Address).
 
-Vai trò: xử lý nghiệp vụ thanh toán, tích hợp cổng thanh toán (VNPay, Momo...).
-Quan hệ giữa các package
+3.2. Core.User.Service: Logic nghiệp vụ (Kiểm tra vai trò, Cập nhật hồ sơ).
 
-UI → Business Logic: UI gọi đến Business để xử lý hành động người dùng.
+3.3. Core.User.Security: Áp dụng các quy tắc bảo mật (gọi đến Util.Security).
+4.Gói Core.Catalog (Danh mục Dịch vụ & Địa điểm)
+Quản lý các thông tin tĩnh/bán tĩnh của hệ thống.
 
-Business Logic → Data Access: Lấy dữ liệu người dùng, stylist, dịch vụ từ DB.
+4.1. Core.Catalog.Service: Định nghĩa Dịch vụ, Gói dịch vụ.
 
-Business Logic → Payment: Khi đặt lịch cần thanh toán, gọi sang Payment Package
+4.2. Core.Catalog.Barber: Hồ sơ thợ cắt tóc (Chuyên môn, Đánh giá, Thư viện ảnh).
+
+4.3. Core.Catalog.Location: Thông tin Salon/Chi nhánh (Địa chỉ, Giờ mở cửa, Tiện ích).
+
+5.Gói Core.Booking (Logic Đặt Lịch)
+Trung tâm của ứng dụng.
+5.1. Core.Booking.SlotFinder: Logic phức tạp để tìm kiếm lịch trống hợp lệ (cân nhắc giờ thợ, thời lượng dịch vụ, giờ mở cửa).
+
+5.2. Core.Booking.Manager: Xử lý việc Create (Tạo), Update (Cập nhật), Cancel (Hủy) lịch hẹn.
+
+5.3. Core.Booking.Validator: Kiểm tra các ràng buộc (trùng lịch, đặt ngoài giờ).
+6.Gói Core.Payment (Thanh toán)
+6.1. Core.Payment.Transaction: Ghi nhận các giao dịch thanh toán, hoàn tiền.
+
+6.2. Core.Payment.Integrator: Giao tiếp với cổng thanh toán (gọi đến Util.Gateway)
+7.Gói Util.Notification (Thông báo)
+Đảm bảo khách hàng và salon được thông báo kịp thời.
+
+7.1. Util.Notification.Sender: Giao diện chung để gửi thông báo.
+
+7.2. Util.Notification.Template: Các mẫu thông báo (Xác nhận đặt lịch, Nhắc nhở 1 giờ trước, Lời chúc mừng sinh nhật).
+
+II.Mối quan hệ và Luồng (Relationship and Flow)
+
+1.Luồng Đặt Lịch Căn Bản:
+
+User.Client ⟶ Core.Catalog (Tìm kiếm thợ/dịch vụ)
+
+User.Client ⟶ Core.Booking (Tìm lịch trống và Tạo lịch hẹn)
+
+Core.Booking ⟶ Core.User (Lấy thông tin khách hàng)
+
+Core.Booking ⟶ Core.Payment (Yêu cầu thanh toán/đặt cọc)
+
+Core.Booking ⟶ Util.Notification (Gửi thông báo xác nhận lịch)
+
+2.Luồng Cập nhật Lịch làm việc của Thợ:
+
+User.Salon ⟶ Core.Catalog (Cập nhật thông tin/dịch vụ)
+
+User.Salon ⟶ Core.Booking (Cập nhật lịch làm việc)
+
+3.Hạ tầng Cốt lõi:
+
+Tất cả các gói Core.* ⟶ Core.Database (Lưu trữ và truy xuất dữ liệu)
+
+Core.Payment ⟶ Util.Gateway (Sử dụng cổng thanh toán bên thứ ba)
+
+Util.Notification ⟶ Util.Gateway (Sử dụng dịch vụ SMS/Email bên thứ ba)
