@@ -1,1 +1,37 @@
-#Các lớp
+Các lớp chính:
+
+User
+
+.Thuộc tính: userId, name, phone, email, password
+
+.Phương thức: register(), login(), updateProfile()
+Stylist
+Thuộc tính: stylistId, specialty, rating
+
+Phương thức: addSchedule(), updateSchedule()
+Service
+Thuộc tính: serviceId, name, duration, price
+
+Phương thức: updateService()
+Booking
+Thuộc tính: bookingId, date, time, status
+
+Phương thức: createBooking(), cancelBooking(), confirmBooking()
+Payment
+Thuộc tính: paymentId, amount, method, status
+
+Phương thức: makePayment(), refund()
+Salon
+Thuộc tính: salonId, name, address, phone
+
+Phương thức: updateInfo()
+Quan hệ:
+User có thể tạo nhiều Booking (1–*).
+
+Booking gắn với Stylist và Service (mỗi booking chọn 1 stylist + 1 service).
+
+Booking có 1 Payment (1–1).
+
+Stylist thuộc về Salon (nhiều stylist – 1 salon).
+
+Service cũng thuộc về Salon (nhiều service – 1 salon).
