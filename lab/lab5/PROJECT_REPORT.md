@@ -33,8 +33,7 @@
 ### Bước 1: Thiết kế Use Case:
 ![Use Case](../lab%202/UC%20Miniapp.png)
 
-![Use Case]([lab/lab3/UC.drawio.png](https://github.com/091222005minh/CNPM-NHOM-4/blob/main/lab/lab%203/UC.drawio.png?raw=true)
-
+![Use Case](lab/lab3/UC.drawio.png)
 ### Bước 2: Thiết kế Sequence:
 ![Sequence Diagram](../lab3/UC.drawio.png)
 ### Bước 3: Prototype Form Login:
