@@ -32,6 +32,9 @@
 ## 3. Thiết kế Use Case, Sequence, Form Login code.
 ### Bước 1: Thiết kế Use Case:
 ![Use Case](../lab%202/UC%20Miniapp.png)
+
+![Use Case Diagram](./lab/lab3/UC.drawio.png)
+
 ### Bước 2: Thiết kế Sequence:
 ![Sequence Diagram](https://raw.githubusercontent.com/091222005minh/CNPM-NHOM-4/main/lab/lab%203/SD-Sequnce%20Diagram.png)
 ### Bước 3: Prototype Form Login:
