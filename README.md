@@ -7,7 +7,7 @@ Mục tiêu là áp dụng quy trình phát triển phần mềm, từ **phân t
 ## 👥 Thành viên nhóm
 - Nguyễn Hữu Minh
 - Đoàn Nguyễn Thanh Tài
-- Lương Thái An  
+- Lương Thái An : Github Page: https://github.com/n23dcpt001-cloud/thaianluong.github.io
 - Nguyễn Thiện Quân
 
 ## 🎯 Use Case chính
