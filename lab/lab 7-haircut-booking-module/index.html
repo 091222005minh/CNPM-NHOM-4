@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt lịch cắt tóc</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Đặt lịch cắt tóc</h2>
+    <form id="appointmentForm">
+      <div class="form-group">
+        <label for="barber">Chọn thợ cắt tóc</label>
+        <select id="barber" required>
+          <option value="">-- Chọn thợ --</option>
+          <option value="Anh A">Anh A</option>
+          <option value="Chị B">Chị B</option>
+          <option value="Anh C">Anh C</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="customer">Tên khách hàng</label>
+        <input type="text" id="customer" placeholder="Nhập tên của bạn" required>
+      </div>
+
+      <div class="form-group">
+        <label for="datetime">Ngày giờ hẹn</label>
+        <input type="datetime-local" id="datetime" required>
+      </div>
+
+      <div class="form-group">
+        <label for="service">Chọn dịch vụ</label>
+        <select id="service" required>
+          <option value="">-- Chọn dịch vụ --</option>
+          <option value="Cắt tóc">Cắt tóc</option>
+          <option value="Gội đầu">Gội đầu</option>
+          <option value="Nhuộm tóc">Nhuộm tóc</option>
+          <option value="Uốn tóc">Uốn tóc</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit">Xác nhận</button>
+    </form>
+
+    <div id="responseMessage" class="message" style="display:none;"></div>
+  </div>
+
+  <script>
+    document.getElementById("appointmentForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const appointmentData = {
+        barber: document.getElementById("barber").value,
+        customer: document.getElementById("customer").value,
+        datetime: document.getElementById("datetime").value,
+        service: document.getElementById("service").value
+      };
+
+      const responseDiv = document.getElementById("responseMessage");
+
+      try {
+        const res = await fetch("http://localhost:3000/appointments", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(appointmentData)
+        });
+
+        const result = await res.json();
+
+        if (res.ok) {
+          responseDiv.textContent = result.message || "Đặt lịch thành công!";
+          responseDiv.className = "message success";
+        } else {
+          responseDiv.textContent = result.message || "Có lỗi xảy ra!";
+          responseDiv.className = "message error";
+        }
+
+        responseDiv.style.display = "block";
+      } catch (err) {
+        responseDiv.textContent = "Không thể kết nối server!";
+        responseDiv.className = "message error";
+        responseDiv.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
 
