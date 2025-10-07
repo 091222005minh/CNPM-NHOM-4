@@ -8,7 +8,7 @@ Mục tiêu là áp dụng quy trình phát triển phần mềm, từ **phân t
 - Nguyễn Hữu Minh
 - Đoàn Nguyễn Thanh Tài : Github Page:https://github.com/taidoannguyenthanh20-dotcom
 - Lương Thái An : Github Page: https://github.com/n23dcpt001-cloud/thaianluong.github.io
-- Nguyễn Thiện Quân
+- Nguyễn Thiện Quân: Github Page: https://github.com/n23dcpt043-quan/thienquan.github.io
 
 ## 🎯 Use Case chính
 - Đăng ký tài khoản
