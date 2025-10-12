@@ -6,7 +6,7 @@ Mục tiêu là áp dụng quy trình phát triển phần mềm, từ **phân t
 
 ## 👥 Thành viên nhóm
 - Nguyễn Hữu Minh
-- Đoàn Nguyễn Thanh Tài : Github Page [https://github.com/taidoannguyenthanh20-dotcom/thanhtai.github.io](https://github.com/taidoannguyenthanh20-dotcom/Thanhtai45.github.io)
+- Đoàn Nguyễn Thanh Tài : Github Page https://github.com/taidoannguyenthanh20-dotcom/Thanhtai45.github.io
 - Lương Thái An : Github Page: https://github.com/n23dcpt001-cloud/thaianluong.github.io
 - Nguyễn Thiện Quân: Github Page: https://github.com/n23dcpt043-quan/thienquan.github.io
 
